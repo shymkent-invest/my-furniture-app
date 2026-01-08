@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мебель как отражение личности</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="app-container">
+    <header class="main-header">
+        <div class="logo">Мебель.Стиль</div>
+        <div class="user-icon" onclick="nextScreen('profile', 100)">👤</div>
+    </header>
+
+    <div class="progress"><div class="progress-fill" id="progressBar"></div></div>
+
+    <section id="screen1" class="screen active">
+        <div class="pinterest-header">
+            <h1>Вдохновение</h1>
+            <p>Нажмите ❤️ на то, что нравится</p>
+        </div>
+        <div class="pin-grid">
+            <div class="pin">
+                <img src="https://images.unsplash.com/photo-1556911223-e452028e363d?w=400" alt="Kitchen">
+                <div class="like-btn" onclick="toggleLike(this, 'Кухня лофт')">🤍</div>
+                <div class="pin-overlay" onclick="nextScreen('calc', 40)">Кухни</div>
+            </div>
+            <div class="pin">
+                <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400" alt="Living room">
+                <div class="like-btn" onclick="toggleLike(this, 'Гостиная минимализм')">🤍</div>
+                <div class="pin-overlay" onclick="nextScreen('calc', 40)">Гостиные</div>
+            </div>
+        </div>
+        <button class="btn floating-btn" onclick="nextScreen('calc', 40)">Рассчитать мой проект</button>
+    </section>
+
+    <section id="screen-calc" class="screen">
+        <h2>Калькулятор стоимости</h2>
+        <div class="calc-box">
+            <label>Длина (метры): <span id="lengthVal">2</span> м.</label>
+            <input type="range" min="1" max="10" value="2" class="slider" id="lengthRange">
+            <label>Материал фасада:</label>
+            <select id="material" class="select-input" onchange="updatePrice()">
+                <option value="1">ЛДСП (Эконом)</option>
+                <option value="1.5">МДФ Эмаль (Стандарт)</option>
+                <option value="2.2">Массив дерева (Премиум)</option>
+            </select>
+            <div class="result-box">
+                <p>Цена: <strong id="totalPrice">150 000</strong> ₸</p>
+                <p>Kaspi 0-0-12: <strong id="monthlyPrice">12 500</strong> ₸/мес</p>
+            </div>
+        </div>
+        <button class="btn" onclick="nextScreen('payment', 80)">Выбрать банк</button>
+    </section>
+
+    <section id="screen-payment" class="screen">
+        <h2>Оплата и рассрочка</h2>
+        <div class="pay-list">
+            <div class="pay-item" onclick="nextScreen('final', 100)">
+                <span class="bank-logo kaspi">К</span>
+                <div class="pay-info"><strong>Kaspi.kz</strong><span>Рассрочка 0-0-12</span></div>
+            </div>
+            <div class="pay-item" onclick="nextScreen('final', 100)">
+                <span class="bank-logo halyk">H</span>
+                <div class="pay-info"><strong>Halyk Bank</strong><span>Рассрочка до 24 мес.</span></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="screen-profile" class="screen">
+        <h3>Мой профиль</h3>
+        <div class="status-card">
+            <p>Статус заказа: <strong>🛠 Сборка</strong></p>
+            <div class="status-bar"><div class="status-fill" style="width: 75%;"></div></div>
+        </div>
+        <button class="btn btn-secondary" onclick="nextScreen(1, 0)">Назад</button>
+    </section>
+
+    <section id="screen-final" class="screen">
+        <h1>✨ Заявка принята!</h1>
+        <p>Мы свяжемся с вами в течение 15 минут.</p>
+        <button class="btn" onclick="location.reload()">На главную</button>
+    </section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
