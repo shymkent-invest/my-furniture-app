@@ -1,0 +1,50 @@
+<section id="screen-calc" class="screen">
+    <h2>Калькулятор стоимости</h2>
+    <div class="calc-box">
+        <label>Длина (метры): <span id="lengthVal">2</span> м.</label>
+        <input type="range" min="1" max="10" value="2" class="slider" id="lengthRange">
+        
+        <label>Материал фасада:</label>
+        <select id="material" class="select-input">
+            <option value="1">ЛДСП (Эконом)</option>
+            <option value="1.5">МДФ Эмаль (Стандарт)</option>
+            <option value="2.2">Массив дерева (Премиум)</option>
+        </select>
+
+        <div class="result-box">
+            <p>Примерная цена: <strong id="totalPrice">150 000</strong> ₸</p>
+            <p>В рассрочку (Kaspi 0-0-12): <strong id="monthlyPrice">12 500</strong> ₸/мес</p>
+        </div>
+    </div>
+    <button class="btn" onclick="nextScreen('payment', 90)">Оформить рассрочку</button>
+</section>
+
+<section id="screen-profile" class="screen">
+    <div class="profile-header">
+        <div class="user-avatar">👤</div>
+        <h3>Мой профиль</h3>
+    </div>
+    <div class="status-card">
+        <p>Статус заказа: <strong>🛠 В производстве</strong></p>
+        <div class="status-bar"><div class="status-fill" style="width: 60%;"></div></div>
+    </div>
+    <h4>Мои лайки:</h4>
+    <div id="liked-items-list" class="mini-grid">
+        </div>
+    <button class="btn btn-secondary" onclick="nextScreen(1, 0)">Вернуться в каталог</button>
+</section>
+
+<section id="screen-reviews" class="screen">
+    <h2>Наши работы</h2>
+    <div class="compare-container">
+        <div class="compare-label">До / После</div>
+        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400" class="img-compare" id="compareImg">
+        <button class="btn-mini" onclick="toggleCompare()">Показать результат</button>
+    </div>
+    <div class="reviews-list">
+        <div class="review-item">
+            <strong>Марат, г. Алматы</strong>
+            <p>«Заказали кухню, Kaspi рассрочку одобрили за минуту. Собрали за 10 дней!»</p>
+        </div>
+    </div>
+</section>
